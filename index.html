@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pedido de Casamento</title>
+  <title>Hyngrid</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <style>
 
@@ -29,17 +29,9 @@
       position: relative;
     }
 
-    /* .carousel-control-prev-icon,
-    .carousel-control-next-icon {
-    background-color: red; /* Define o fundo das setas como vermelho */
-    border-radius: 50%; /* Torna as setas arredondadas, opcional */
+    .btn {
+      margin: 0 20px; /* Espaçamento horizontal entre botões */
     }
-
-    .carousel-control-prev-icon::after,
-    .carousel-control-next-icon::after {
-    color: #2c2c2c;; /* Garante que o ícone interno permaneça branco */
-    } */
-
   </style>
 </head>
 
@@ -118,11 +110,12 @@
       document.getElementById('pedido').style.display = 'block';
       document.getElementById('id_espera').style.display = 'none';
       document.querySelector('.button-container').style.display = 'block';
-    }, 4000);
+    }, 1);
 
     const recusarBtn = document.getElementById('recusar');
     const aceitarBtn = document.getElementById('aceitar');
     const carousel = document.getElementById('carousel');
+    let acceptButtonSize = 1;
 
     $('#carousel').carousel({
      interval: 1000 // 2 segundos
@@ -136,6 +129,10 @@
       recusarBtn.style.position = 'absolute';
       recusarBtn.style.left = `${newX}px`;
       recusarBtn.style.top = `${newY}px`;
+
+         // Aumenta o tamanho do botão Aceitar
+        acceptButtonSize += 0.2;
+        aceitarBtn.style.transform = `scale(${acceptButtonSize})`;
     });
 
     // Aceitar o pedido e exibir o slide
